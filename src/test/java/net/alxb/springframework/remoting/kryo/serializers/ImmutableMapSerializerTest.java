@@ -8,7 +8,6 @@ import junitparams.Parameters;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.objenesis.strategy.SerializingInstantiatorStrategy;
 
 import com.esotericsoftware.kryo.Serializer;
 import com.google.common.collect.ImmutableMap;
@@ -22,7 +21,6 @@ public class ImmutableMapSerializerTest extends
 	@Parameters(method = "getMaps")
 	@Test
 	public void roundtripSerialization(ImmutableMap<Object, Object> original) {
-		kryo.setInstantiatorStrategy(new SerializingInstantiatorStrategy());
 
 		@SuppressWarnings("unchecked")
 		Class<ImmutableMap<Object, Object>> clazz = (Class<ImmutableMap<Object, Object>>) original

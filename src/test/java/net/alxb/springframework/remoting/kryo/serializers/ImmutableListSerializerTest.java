@@ -12,7 +12,6 @@ import junitparams.Parameters;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.objenesis.strategy.SerializingInstantiatorStrategy;
 
 import com.esotericsoftware.kryo.Serializer;
 import com.google.common.collect.ImmutableList;
@@ -26,7 +25,6 @@ public class ImmutableListSerializerTest extends
 	@Parameters(method = "getLists")
 	@Test
 	public void roundtripSerialization(ImmutableList<Object> original) {
-		kryo.setInstantiatorStrategy(new SerializingInstantiatorStrategy());
 
 		@SuppressWarnings("unchecked")
 		Class<ImmutableList<Object>> clazz = (Class<ImmutableList<Object>>) original

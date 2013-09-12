@@ -5,7 +5,6 @@ import java.util.Map.Entry;
 
 import org.objenesis.instantiator.ObjectInstantiator;
 import org.objenesis.strategy.InstantiatorStrategy;
-import org.objenesis.strategy.SerializingInstantiatorStrategy;
 import org.springframework.remoting.support.RemoteInvocation;
 
 import com.esotericsoftware.kryo.Kryo;
@@ -21,7 +20,7 @@ public class DefaultKryoFactory implements KryoFactory {
 	public static final int REMOTE_INVOCATION_REGISTRATION_ID = 100;
 	public static final int REMOTE_INVOCATION_RESULT_REGISTRATION_ID = 101;
 
-	private InstantiatorStrategy instantiatorStrategy = new SerializingInstantiatorStrategy();
+	private InstantiatorStrategy instantiatorStrategy;
 	private Map<Class<?>, ObjectInstantiator> instantiators;
 	private Map<Class<?>, Serializer<?>> serializers;
 	
